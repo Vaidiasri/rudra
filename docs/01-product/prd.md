@@ -1,7 +1,7 @@
 # Rudra: Product Requirements Document (PRD)
 
-- **Status:** In review (§1–3, §6 persona and workflows reviewed with founder 2026-11-18)
-- **Version:** 0.2
+- **Status:** Approved (2026-11-20). Persona, workflows W-1–W-3, scope and slice plan reviewed with the founder.
+- **Version:** 1.0
 - **Last updated:** 2026-11-18
 - **Inputs:** [Research synthesis](../02-research/00-synthesis.md), [ADR-0001](../adr/0001-positioning-verified-automation.md), [ADR-0002](../adr/0002-mvp-surfaces-and-audience.md), [ADR-0003](../adr/0003-observation-data-minimization.md), [ADR-0007](../adr/0007-verification-hierarchy.md), [ADR-0009](../adr/0009-llm-usage-and-key-policy.md)
 
@@ -113,7 +113,7 @@ Admission test ([process §3](../00-architecture-process.md)): **P**ain (real, f
 | F-008 | **Natural-language customisation** of templates ("only include tickets labelled backend", "post on Thursdays") with contract preview | ✅ | ✅ | D | ✅ validated spec | ✅ | **MVP** |
 | F-009 | **Dry run / preview** before enabling a workflow | ✅ | ✅ | E | ✅ | ✅ | **MVP** |
 | F-010 | **Daily digest** (Slack DM or email) with notification cap | ✅ | ✅ | E | ✅ | ✅ | **MVP** |
-| F-011 | **Discovery from connected-tool activity** (rule-based detectors over Slack/GitHub/Jira history → suggestions) | ⚠️ unproven precision | ✅ acceptance rate | D | ⚠️ | ✅ | **MVP-lite**: 3–5 high-precision detectors, max 3 suggestions/week |
+| F-011 | Discovery from connected-tool activity (suggest new automations) | ⚠️ unproven precision | ✅ acceptance rate | D | ⚠️ | ✅ | **Later** (parked 2026-11-20: doesn't serve PER-1's ranked pains) |
 | F-012 | **Style learning from edits** (drafts adapt to the user's tone and format) | ✅ | ✅ edit rate | D | ✅ edit-distance metric | ✅ | **MVP** |
 | F-013 | **Run history and audit log** (every action Rudra took, with who approved) | ✅ | ✅ | E | ✅ | ✅ | **MVP** |
 | F-014 | **API key management (BYOK)** with tier detection and free-key warnings | ✅ | ✅ | E (ADR-0009) | ✅ | ✅ | **MVP** |
@@ -241,12 +241,16 @@ The workflow list and pricing are hypotheses until tested:
 
 ## 12. Release plan
 
-| Stage | Audience | Scope | Exit criteria |
+The MVP ships as **vertical slices**. Each slice is usable on its own and dogfooded daily by the founder before the next starts (approved 2026-11-20).
+
+| Slice | Theme | Scope | Exit criteria |
 |---|---|---|---|
-| Alpha | Founder (dogfooding) | Platform F-001–F-015, F-029–F-035 (desktop companion, Android app, coverage guard, consent, conversation intelligence) with W-1, W-2 | Verified success ≥ 85% over 2 weeks of real use |
-| Private beta | 20–50 tech leads/engineers | All MVP workflows, digest, discovery-lite | Metrics in §8 trending to target; no P1 security issues |
-| Public launch | Self-serve | Billing, plans, docs, status page | Week-4 retention ≥ 40%; false-success ≤ 2% |
-| Phase 2 | Teams | Team workspaces, Linear, Confluence/Docs, desktop observer | Per phase-2 PRD |
+| **1** | **Never miss a requirement** (W-1 core, USP) | Web app; client registry + consent (F-034); conversation intelligence (F-035); client board (F-038); sign-off summary (F-040); verification engine (F-001, F-002); manual upload (F-030) **first, to validate analysis quality on real Hinglish calls**; then the Windows desktop call companion (F-031) | On ≥ 10 real client calls: item recall ≥ 90% vs founder's own list, zero uncited items, founder rates blind spots/questions useful on ≥ 70% of calls; then desktop capture works on ≥ 95% of laptop calls |
+| **2** | **Know what to do today** (W-2) | Jira, Linear, GitHub, Calendar connectors (F-006); unified view (F-029); daily plan; shadow deadlines from Slack (F-041); delivery via Slack/web/email; digest (F-010) | Plan completeness verified daily for 2 weeks; founder follows the plan on ≥ 70% of days |
+| **3** | **Close every loop** (W-3) | Open loops (F-043), Slack sending, nudges, expert finder (F-044), stuck detection (F-045), board → tickets (W-1 stage 3), approvals (F-004), retries (F-003) | No dropped loops over 2 weeks; ≥ 80% of loops closed with answers fed back |
+| **4** | **Phone coverage** | Android app (F-032): memos, in-person recording, OEM call-recording import, WhatsApp notification reader (F-042); coverage guard (F-033) | ≥ 80% of the founder's client conversations captured or memo'd |
+| **5** | **Ready for others** | Planning session (F-039), trust ladder (F-005), style learning (F-012), BYOK (F-014), metering/billing (F-015), onboarding, templates (F-007–F-009) | Private beta with 20–50 multi-client developers; metrics in §8 trending to target |
+| Later | Teams & expansion | Team workspaces (F-017), desktop activity observer (F-018), later capture adapters (F-036), Bluetooth bridge R&D (F-037), iOS | Per later PRD |
 
 ---
 

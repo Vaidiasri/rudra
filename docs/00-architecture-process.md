@@ -68,7 +68,9 @@ Features that fail go to a **parking lot** with the reason, not into the backlog
 | Phase | Status |
 |---|---|
 | 1 Research | **Approved**: three reports + [synthesis](02-research/00-synthesis.md); decisions in [ADRs 0001–0010](adr/) |
-| 2 Product definition | **In review**: [PRD](01-product/prd.md) |
-| 3–11 | Not started |
+| 2 Product definition | **Approved**: [PRD v1.0](01-product/prd.md) + workflow designs [W-1](01-product/workflows/w1-client-conversations.md), [W-2](01-product/workflows/w2-daily-plan.md), [W-3](01-product/workflows/w3-follow-ups-and-help.md); delivery in 5 vertical slices |
+| 3 Requirements | **Approved** for slice 1: [slice 1 requirements](03-requirements/slice-1-requirements.md) |
+| 4 HLD | **In progress**: slice 1 |
+| 5–11 | Not started |
 
 The earlier [PLAN.md](PLAN.md) is the **vision draft** that framed this work. It will be superseded by the PRD, HLD and ADRs as they're approved. Code on branch `feat/m0-foundation` is a **spike** and will not be merged as-is.
